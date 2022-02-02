@@ -2,9 +2,11 @@ import requests
 from twilio.rest import Client
 
 OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
-api_key = "2b9b523c035deabd32599358929037a7"
-account_sid = "AC9b1ee39e932dbc3ed528a21d8ee1dcd9"
-auth_token = "8295aa955eb294d01e5ccf17c9f6769d"
+api_key = "WEATHERAPI"
+account_sid = "TWILIOSID"
+auth_token = "TWILIOTOKEN"
+
+auth_phone = "AUTHPHONE"
 
 weather_params = {
     "lat": 59.490269,
@@ -34,7 +36,7 @@ if will_rain:
     message = client.messages \
         .create(
         body="It's going to rain today :)",
-        from_="+17166870572",
+        from_=auth_phone,
         to="Your verified number"
     )
     print(message.sid)
@@ -44,7 +46,7 @@ elif will_snow:
     message = client.messages \
         .create(
         body="It's going to snow today :)",
-        from_="+17166870572",
+        from_=auth_phone,
         to="Your verified number"
     )
     print(message.sid)

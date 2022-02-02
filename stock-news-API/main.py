@@ -1,6 +1,8 @@
 import requests
 from twilio.rest import Client
 
+AUTH_PHONE = "AUTHPHONE"
+
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
@@ -85,7 +87,7 @@ client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
 for article in formatted_articles:
     message = client.messages.create(
         body=article,
-        from_="+17166870572",
+        from_=AUTH_PHONE,
         to=verified_number
     )
 
